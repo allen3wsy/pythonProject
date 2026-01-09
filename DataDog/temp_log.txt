@@ -1,0 +1,4 @@
+Line 1: This is a short test message.
+Line 2: Another short message.
+Line 3: This message should trigger an automatic flush before being added.
+Line 4: This data remains in the buffer.
