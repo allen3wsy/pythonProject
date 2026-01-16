@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from typing import List, Dict, Optional
 
-# haha
+# haha :)
 def scrape_website_links(url: str) -> Optional[List[str]]:
     """
     Fetches the content of a URL and extracts all the 'href' attributes
