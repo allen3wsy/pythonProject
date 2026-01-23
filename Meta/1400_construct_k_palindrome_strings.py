@@ -1,6 +1,6 @@
 class Solution:
     # Time: O(N)  Space: O(1): 26
-    def canConstruct(self, s: str, k: int) -> bool:
+    def can_construct(self, s: str, k: int) -> bool:
         # Handle edge cases
         if len(s) < k:
             return False
@@ -12,16 +12,17 @@ class Solution:
 
         # Increment the value of the index corresponding to the current character
         for char in s:
-            freq[ord(char) - ord("a")] += 1
+            freq[ord(char) - ord('a')] += 1
         # Count the number of characters that appear an odd number of times in s
         for count in freq:
             if count % 2 == 1:
                 odd_count += 1
         # Return if the number of odd frequencies is less than or equal to k
+        # EX: not odd_count == k.... it should be:
         return odd_count <= k
 
     # Option 2: Simpler bit manipulation
-    # def canConstruct(self, s: str, k: int) -> bool:
+    # def can_construct_2(self, s: str, k: int) -> bool:
     #     # Handle edge cases
     #     if len(s) < k:
     #         return False
@@ -43,5 +44,6 @@ class Solution:
     # bin(5).count('1'): count the occurrences of '1' in the binary string "0b101" -> 2
 
 solution = Solution()
-print(solution.canConstruct("aabc", 2))
-print(solution.canConstruct("leetcode", 5))
+print(solution.can_construct("aabc", 2))
+print(solution.can_construct("leetcode", 5))
+print(solution.can_construct("leetcode", 6))

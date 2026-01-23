@@ -29,4 +29,3 @@ class Solution:
 solution = Solution()
 print(solution.minInsertions("()()()))"))
 print(solution.minInsertions("()("))
-# print(solution.canConstruct("leetcode", 5))

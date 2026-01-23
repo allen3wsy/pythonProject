@@ -1,6 +1,6 @@
 class Solution:
-    # Brute force: O(log N)
-    def findKthPositive(self, arr: list[int], k: int) -> int:
+    # binary search: N(log N)
+    def find_kth_positive(self, arr: list[int], k: int) -> int:
         left, right = 0, len(arr) - 1
         while left <= right:
             pivot = (left + right) // 2
@@ -10,7 +10,7 @@ class Solution:
             # continue to search on the right.
             if arr[pivot] - pivot - 1 < k:
                 left = pivot + 1
-            # Otherwise, go left.
+            # Otherwise, go left. Even if arr[pivot] - pivot - 1 == k, we still look at whole left part !!!
             else:
                 right = pivot - 1
 
@@ -19,11 +19,11 @@ class Solution:
         # The number of integers missing before arr[right] is
         # arr[right] - right - 1 -->
         # the number to return is
-        # arr[right] + k - (arr[right] - right - 1) = k + left
-        return left + k
+        # arr[right] + k - (arr[right] - right - 1) = k + left = right + 1 + k
+        return right + 1 + k  # = left + k
 
     # Brute force: O(N)
-    def findKthPositive_2(self, arr: list[int], k: int) -> int:
+    def find_kth_positive_2(self, arr: list[int], k: int) -> int:
         for num in arr:
             if num <= k:
                 k += 1
@@ -35,5 +35,5 @@ solution = Solution()
 
 # Strictly increasing positive array: so no duplicates at all !!!
 nums = [2, 3, 4, 7, 11]
-print(solution.findKthPositive(nums, 3))
-print(solution.findKthPositive_2(nums, 3))
+print(solution.find_kth_positive(nums, 3))
+print(solution.find_kth_positive_2(nums, 3))
