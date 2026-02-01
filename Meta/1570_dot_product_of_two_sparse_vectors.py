@@ -1,5 +1,5 @@
 class SparseVector:
-    def __init__(self, nums: List[int]):
+    def __init__(self, nums: list[int]):
         self.pairs = []
         for index, value in enumerate(nums):
             if value != 0:
